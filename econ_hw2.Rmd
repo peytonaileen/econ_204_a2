@@ -1,0 +1,25 @@
+---
+title: "econ_hw_2"
+author: "Peyton Moore"
+date: "4/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+```
+
+
+```{r}
+#read in data 
+
+hw2_data <- read_csv("HW2_Data.csv")
+```
+
