@@ -1,0 +1,178 @@
+---
+title: "204_a2"
+author: "Bren Comms Department"
+date: "4/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Attach packages
+library(tidyverse)
+library(janitor)
+library(plotly)
+library(kableExtra)
+library(dplyr)
+library(here)
+library(ggbeeswarm)
+library(car)
+library(plotly)
+library(effsize)
+
+# Read in the original data
+data_raw <- read_csv("HW2_Data.csv")
+
+em_A = 170
+em_B = 200
+em_C = 230
+em_D = 300
+```
+
+```{r}
+## NUMBER 1 FOR A
+
+ggplot(data_raw, aes(x = Abatement, y = MC_A))+
+  geom_point()+
+  stat_smooth(method = "lm", formula = y ~ x, col = "red")
+
+lm(formula = MC_A ~ Abatement, data = data_raw)
+```
+
+A = 170
+y = mx + b
+
+m = 0.513
+b = 1.663
+
+```{r}
+## NUMBER 2 FOR A
+
+#y point
+y_a = 0.513*(em_A) + 1.663
+a_dem_int <- y_a
+
+#slope
+slope_dem_a = ((y_a-0)/(0-em_A))
+a_dem_slop <- slope_dem_a
+
+#Demand curve
+a_dem_curv <- function(x){x*a_dem_slop + a_dem_int}
+
+#plot demand curves
+curve(a_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+```
+
+
+```{r}
+## NUMBER 1 FOR B
+
+ggplot(data_raw, aes(x = Abatement, y = MC_B))+
+  geom_point()+
+  stat_smooth(method = "lm", formula = y ~ x, col = "red")
+
+lm(formula = MC_B ~ Abatement, data = data_raw)
+```
+
+y = mx + b
+
+slope = 0.3918  
+y-int = 8.7853
+
+```{r}
+## NUMBER 2 FOR B
+
+#y point
+y_b = 0.3918*(em_B) + 8.7853
+b_dem_int <- y_b
+
+#slope
+slope_dem_b = ((y_b-0)/(0-em_B))
+b_dem_slop <- slope_dem_b
+
+#Demand curve
+b_dem_curv <- function(x){x*b_dem_slop + b_dem_int}
+
+#plot demand curves
+curve(b_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+```
+
+
+```{r}
+## NUMBER 1 FOR C
+
+ggplot(data_raw, aes(x = Abatement, y = MC_C))+
+  geom_point()+
+  stat_smooth(method = "lm", formula = y ~ x, col = "red")
+
+lm(formula = MC_C ~ Abatement, data = data_raw)
+```
+
+y = mx + b
+
+slope = 1.13   
+y-int = -26.81
+
+```{r}
+## NUMBER 2 FOR C
+
+#y point
+y_c = 1.13*(em_C) - (26.81)
+c_dem_int <- y_c
+
+#slope
+slope_dem_c = ((y_c-0)/(0-em_C))
+c_dem_slop <- slope_dem_c
+
+#Demand curve
+c_dem_curv <- function(x){x*c_dem_slop + c_dem_int}
+
+#plot demand curves
+curve(c_dem_curv, from = 0, to = 300, xlim = c(0,250), xaxs = "i", ylim = c(0,250), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+
+```
+
+
+```{r}
+#1D
+ggplot(data_raw, aes(x = Abatement, y = MC_D))+
+  geom_point()+
+  stat_smooth(method = "lm", formula = y ~ x, col = "red")
+
+lm(formula = MC_D ~ Abatement, data = data_raw)
+```
+
+y = mx + b
+
+slope = 0.5535  
+y-int = -12.2103
+
+```{r}
+## NUMBER 2 FOR D
+
+#y point
+y_d = 0.5535*(em_D) - 12.2103
+d_dem_int <- y_d
+
+y = -0.512799*x + 153.8397
+
+#slope
+slope_dem_d = ((y_d-0)/(0-em_D))
+d_dem_slop <- slope_dem_d
+
+#Demand curve
+d_dem_curv <- function(x){x*d_dem_slop + d_dem_int}
+
+#plot demand curves
+curve(d_dem_curv, from = 0, to = 300, xlim = c(0,350), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+
+```
+
+PART 3
+
+```{r}
+
+```
+
