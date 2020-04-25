@@ -52,6 +52,10 @@ b r^2 = 0.7102
 c r^2 = 0.8954
 d r^2 = 0.8261
 
+A: 
+Abatement y = 0.513x + 1.663
+Pollution y = 88.8725 - 0.513x
+
 ```{r}
 ## NUMBER 2 FOR A
 
@@ -91,6 +95,10 @@ y = mx + b
 
 slope = 0.3918  
 y-int = 8.7853
+
+B
+Abatement y = 0.3918x + 8.7853
+Pollution y = 87.1453 - 0.3918x
 
 ```{r}
 ## NUMBER 2 FOR B
@@ -132,6 +140,10 @@ y = mx + b
 slope = 1.13   
 y-int = -26.81
 
+C
+Abatement y = 1.13x - (26.81)
+Pollution y = 233.09 - 1.13x
+
 ```{r}
 ## NUMBER 2 FOR C
 
@@ -169,6 +181,10 @@ y = mx + b
 
 slope = 0.5535
 y-int = -12.2103
+
+D
+Abatement y = 0.5535x - 12.2103
+Pollution y = 153.8397 - 0.5535x
 
 ```{r}
 ## NUMBER 2 FOR D
