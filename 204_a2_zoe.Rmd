@@ -47,6 +47,11 @@ y = mx + b
 m = 0.513
 b = 1.663
 
+a r^2 = 0.7725
+b r^2 = 0.7102
+c r^2 = 0.8954
+d r^2 = 0.8261
+
 ```{r}
 ## NUMBER 2 FOR A
 
@@ -57,12 +62,18 @@ a_dem_int <- y_a
 #slope
 slope_dem_a = ((y_a-0)/(0-em_A))
 a_dem_slop <- slope_dem_a
+a_dem_slop
 
 #Demand curve
 a_dem_curv <- function(x){x*a_dem_slop + a_dem_int}
 
 #plot demand curves
 curve(a_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+
+# RENATA REWRITE
+
+# y_a = 88.8725 - 0.513x
+
 ```
 
 
@@ -97,6 +108,12 @@ b_dem_curv <- function(x){x*b_dem_slop + b_dem_int}
 
 #plot demand curves
 curve(b_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+
+# RENATA REWRITE
+
+# y = 87.1453 - 0.3918p
+
+# what renata got y_b = 87.14129 - 0.3918p
 ```
 
 
@@ -132,6 +149,10 @@ c_dem_curv <- function(x){x*c_dem_slop + c_dem_int}
 #plot demand curves
 curve(c_dem_curv, from = 0, to = 300, xlim = c(0,250), xaxs = "i", ylim = c(0,250), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
 
+# RENATA REWRITE
+
+# y_c = 233.09 - 1.13p
+
 ```
 
 
@@ -146,7 +167,7 @@ lm(formula = MC_D ~ Abatement, data = data_raw)
 
 y = mx + b
 
-slope = 0.5535  
+slope = 0.5535
 y-int = -12.2103
 
 ```{r}
@@ -156,7 +177,7 @@ y-int = -12.2103
 y_d = 0.5535*(em_D) - 12.2103
 d_dem_int <- y_d
 
-y = -0.512799*x + 153.8397
+# y = -0.512799*x + 153.8397
 
 #slope
 slope_dem_d = ((y_d-0)/(0-em_D))
@@ -168,12 +189,37 @@ d_dem_curv <- function(x){x*d_dem_slop + d_dem_int}
 #plot demand curves
 curve(d_dem_curv, from = 0, to = 300, xlim = c(0,350), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
 
+# RENATA REWRITE
+
+# y_d = 153.8397 - 0.5535x
+
 ```
 
 PART 3
 
 ```{r}
+##Part 3A
 
+# sectors a b and c, now have to produce 100 tons of carbon
+
+
+#A
+0.513*(100) + 1.663
+# (100, 52.963)
+# (100, 0)
+# (0, 1.663)
+
+# Cost to sector A : $814.45
+
+
+y_b = 0.3918*(em_B) + 8.7853
+
+y_c = 1.13*(em_C) - (26.81)
+
+
+##Part 3B
+56.05997*300
+# 16817.99 -- tax revenue
 
 ##Part 3C
 
@@ -198,3 +244,39 @@ PART 3
 a. 
 b.
 c. 
+
+```{r}
+# 3a - for A
+
+y_3a_a = 0.513*(100) + 1.663
+# y_3a_a = 52.963
+
+((0.5)*(100)*(52.963-1.663)) + ((1.663)*(100))
+# = 2731.3
+
+###
+
+# 3a - for B
+
+y_3a_b = 0.3918*(100) + 8.7853
+# y_3a_b = 47.9653
+((0.5)*(100)*(47.9653-8.7853)) + ((8.7853)*(100))
+# = 2837.53
+
+###
+
+# 3a - for C
+
+y_3a_c = 1.13*(100) - (26.81)
+# y_3a_c = 86.19
+
+((0.5)*(100-23.7257)*(86.19))
+# = 3287.041
+
+# 2731.3 + 2837.53 + 3287.041 = 8855.871
+
+P = 0.22723848x + .44144195 / 1.22376
+
+y_ag = (300 + 1.939)/5.386
+
+```
