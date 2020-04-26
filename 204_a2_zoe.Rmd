@@ -69,7 +69,7 @@ a_dem_slop <- slope_dem_a
 a_dem_slop
 
 #Demand curve
-a_dem_curv <- function(x){x*a_dem_slop + a_dem_int}
+a_dem_curv <- function(x){88.8725 - 0.513*x}
 
 #plot demand curves
 curve(a_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
@@ -122,6 +122,10 @@ curve(b_dem_curv, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,20
 # y = 87.1453 - 0.3918p
 
 # what renata got y_b = 87.14129 - 0.3918p
+
+test <- function(x){87.1453 - 0.3918*x}
+
+curve(test, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
 ```
 
 
@@ -156,14 +160,17 @@ slope_dem_c = ((y_c-0)/(0-em_C))
 c_dem_slop <- slope_dem_c
 
 #Demand curve
-c_dem_curv <- function(x){x*c_dem_slop + c_dem_int}
+c_dem_curv <- function(x){233.09 - 1.13*x}
 
 #plot demand curves
 curve(c_dem_curv, from = 0, to = 300, xlim = c(0,250), xaxs = "i", ylim = c(0,250), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
+curve(test, from = 0, to = 200, xlim = c(0,300), xaxs = "i", ylim = c(0,200), yaxs = "i",yaxs = "i", xlab = "Carbon Emitted (Tons)", ylab = "Price ($) per Ton")
 
 # RENATA REWRITE
 
 # y_c = 233.09 - 1.13p
+
+
 
 ```
 
@@ -254,6 +261,12 @@ C_MC_eq <- (y_ag + 26.81)/1.13
 # 73.33626
 
 MC_eq_agg <- A_MC_eq + B_MC_eq + C_MC_eq
+
+
+###
+
+y = 0.513x
+
 ```
 
 PART 3
@@ -286,13 +299,35 @@ y_3a_b = 0.3918*(100) + 8.7853
 y_3a_c = 1.13*(100) - (26.81)
 # y_3a_c = 86.19
 
-((0.5)*(100-23.7257)*(86.19))
-# = 3287.041
+((0.5)*(100-23.7257)*(86.19)) - ((1/2)*(26.81)*(23.7257))
+# = 2968.998 
 
 # 2731.3 + 2837.53 + 3287.041 = 8855.871
 
-P = 0.22723848x + .44144195 / 1.22376
+# Y_AG = (x + 1.9387) / 5.3866
+(x / 5.3866) + (0.3599)
+Y_AG = (300 + 1.9387) / 5.3866
+# Y_AG = 56.05367
 
-y_ag = (300 + 1.939)/5.386
+((0.5)*(300)*(56.05367-0.3599)) + (0.3599*300)
+# 8462.035
+
+2968.998 + 2731.3 + 2837.53
+# 8537.828
+
+
+
+###
+
+(56.05367 - 1.663)/0.513
+# 106.0247
+
+(56.05367 - 8.7853)/0.3918
+# 120.6441
+
+(56.05367 + 26.81)/1.13
+# 73.33068
+
+73.33068 + 120.6441 + 106.0247
 
 ```
