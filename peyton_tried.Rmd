@@ -217,7 +217,7 @@ ggplot(data = data_longer, aes(y = mc,
   geom_blank(mapping = NULL)+
   geom_abline(intercept = 88.87, slope = -0.5227, color = "blue")+
   #A
-  geom_abline(intercept = 87.1453, slope = -0.4357, color = "green")+
+  geom_abline(intercept = 87.1453, slope = -0.4357, color = "forestgreen")+
   #B
   geom_abline(intercept = 233.09, slope = -1.013, color = "red") +
   #C
@@ -230,5 +230,57 @@ ggplot(data = data_longer, aes(y = mc,
   labs(title = "Demand for Carbon in Each Sector", 
        x = "Tons of CO2", 
        y = "USD ($)")
+```
+
+```{r}
+ggplot(data = data_longer, aes(y = mc,
+                                   x = Abatement))+
+  geom_blank(mapping = NULL)+
+  geom_abline(intercept = -12.2103, slope = 0.55, color = "purple")+
+  annotate("text", x = 350, y = 170, label = "D", color = "purple")+
+  #D
+  geom_abline(intercept = -2.9164, slope = 0.1445, color = "orange")+
+  annotate("text", x = 550, y = 65, label = "All Country", color = "orange")+
+  annotate("text", x = 550, y = 55, label = "Aggregate", color = "orange")+
+  # All country aggregate = 0.1445x - 2.9164
+  geom_vline(xintercept = 300, color = "violet", linetype="dashed")+
+  # vertical @ 300
+  geom_vline(xintercept = 600, linetype="dashed")+
+  # vertical @ 600
+  geom_vline(xintercept = 126.46, linetype="dashed")+
+  geom_abline(intercept = 83.7836, slope = 0, color = "black", linetype = "dashed")+
+  # horizontal intercept of 600 cap
+  geom_abline(intercept = 153.8397, slope = 0, color = "violet", linetype = "dashed")+
+  # horizontal intercept of 300 cap
+  geom_abline(intercept = 153.84, slope = -0.554, color = "violet")+
+  #D - pollution curve (y = 153.84 - 0.554x)
+  theme_classic()+
+  scale_x_continuous(expand = c(0,0),
+                     limits = c(0,610))+
+  scale_y_continuous(expand = c(0,0))+
+  labs(title = "Marginal Cost of Abatement in Each Sector", 
+       x = "Tons of CO2 Abated", 
+       y = "USD ($)")
+  #FINALIZE GRAPH 
+
+#y_d = 0.5535x - 12.2103
+0.5535*(300) - 12.2103
+# y = 153.8397
+
+# y_ag = 0.1445x-2.9164
+0.1445*(600) - 2.9164
+# y = 83.7836
+
+# Calculating Q for CS
+# D demand -- x = (153.84 - y)/0.554 ; using x = 83.78
+(153.84 - 83.78)/0.554
+# y = 126.4621
+
+# CS from integrating with Country X
+# CS = (1/2)*(Q)*(Pmax - Pd)
+Pmax = 153.84; Pd = 83.78; Q = 126.46
+(1/2)*(Q)*(Pmax - Pd)
+# CA = 4429.894
+
 ```
 
