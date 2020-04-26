@@ -179,16 +179,29 @@ ggplot(data = data_longer, aes(y = mc,
                                    x = Abatement))+
   geom_blank(mapping = NULL)+
   geom_abline(intercept = 1.663, slope = 0.513, color = "blue")+
+  annotate("text", x = 310, y = 170, label = "A", color = "blue")+
   #A
-  geom_abline(intercept = 8.785, slope = 0.3918, color = "green")+
+  geom_abline(intercept = 8.785, slope = 0.3918, color = "forestgreen")+
+  annotate("text", x = 390, y = 170, label = "B", color = "forestgreen")+
   #B
   geom_abline(intercept = -26.81, slope = 1.13, color = "red") +
+  annotate("text", x = 185, y = 170, label = "C", color = "red")+
   #C
   geom_abline(intercept = -12.2103, slope = 0.55, color = "purple")+
+  annotate("text", x = 350, y = 170, label = "D", color = "purple")+
   #D
+  geom_abline(intercept = 0.3597, slope = 0.1856, color = "black")+
+  annotate("text", x = 550, y = 125, label = "Country X", color = "black")+
+  annotate("text", x = 550, y = 115, label = "Aggreagte", color = "black")+
+  # Country X aggregate = 0.1856x + 0.3597
+  geom_abline(intercept = -2.9164, slope = 0.1445, color = "orange")+
+  annotate("text", x = 550, y = 65, label = "All Country", color = "orange")+
+  annotate("text", x = 550, y = 55, label = "Aggregate", color = "orange")+
+  # All country aggregate = 0.1445x - 2.9164
+  geom_vline(xintercept = 600, linetype="dashed")+
   theme_classic()+
   scale_x_continuous(expand = c(0,0),
-                     limits = c(0,310))+
+                     limits = c(0,610))+
   scale_y_continuous(expand = c(0,0))+
   labs(title = "Marginal Cost of Abatement in Each Sector", 
        x = "Tons of CO2 Abated", 
